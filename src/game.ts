@@ -1,7 +1,11 @@
 import { Cell, Field } from './types';
 import { createEmptyField } from './gameField';
 
-export function countAliveNeighbors(field: Field, x: number, y: number): number {
+export function countAliveNeighbors(
+  field: Field,
+  x: number,
+  y: number,
+): number {
   const rows = field.length;
   const cols = field[0].length;
   let count = 0;
@@ -32,7 +36,7 @@ export function getNextGeneration(field: Field): Field {
   for (let x = 0; x < rows; x++) {
     for (let y = 0; y < cols; y++) {
       const aliveNeighbor = countAliveNeighbors(field, x, y);
-      const cell = field[x][y];
+      const cell: Cell = field[x][y];
 
       if (cell === 1) {
         newField[x][y] = aliveNeighbor === 2 || aliveNeighbor === 3 ? 1 : 0;

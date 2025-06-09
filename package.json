@@ -17,8 +17,8 @@
     "url": "git+https://github.com/TashaStav/game_of_life.git"
   },
   "lint-staged": {
-    "src/**/*.js": "eslint"
-  },
+  "src/**/*.{js,ts,tsx}": "eslint --fix"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -53,8 +53,6 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "-": "^0.0.1",
-    "D": "^1.0.0",
     "eslint-plugin-jest": "^28.11.0"
   }
 }

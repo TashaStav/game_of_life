@@ -62,9 +62,8 @@ describe('getNextGeneration', () => {
 
   it('should handle single row grid correctly', () => {
     const field: Field = [[1, 1, 1]];
-    const newField: Field = [[0, 1, 0]]; 
+    const newField: Field = [[0, 1, 0]];
     const res = getNextGeneration(field);
-
     expect(res).toEqual(newField);
-  })
+  });
 });
