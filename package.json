@@ -1,0 +1,58 @@
+{
+  "name": "game_of_life",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit",
+    "lint:fix": "eslint src --fix",
+    "prepare": "husky",
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TashaStav/game_of_life.git"
+  },
+  "lint-staged": {
+  "src/**/*.{js,ts,tsx}": "eslint --fix"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TashaStav/game_of_life/issues"
+  },
+  "homepage": "https://github.com/TashaStav/game_of_life#readme",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-typescript": "^7.27.1",
+    "@eslint/js": "^9.28.0",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0",
+    "babel-loader": "^10.0.0",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.5.1",
+    "prettier": "3.5.3",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "eslint-plugin-jest": "^28.11.0"
+  }
+}
