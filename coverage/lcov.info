@@ -6,7 +6,7 @@ FNF:2
 FNH:2
 FNDA:24,countAliveNeighbors
 FNDA:3,getNextGeneration
-DA:1,1
+DA:1,2
 DA:2,1
 DA:3,1
 DA:4,1
@@ -87,7 +87,7 @@ FN:3,createEmptyField
 FNF:1
 FNH:1
 FNDA:3,createEmptyField
-DA:1,1
+DA:1,2
 DA:2,1
 DA:3,1
 DA:4,3
