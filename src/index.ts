@@ -5,6 +5,10 @@ import { getNextGeneration } from './game.js';
 let field = createEmptyField(30, 30);
 
 const container = document.querySelector('.field') as HTMLDivElement;
+const stepBtn = document.querySelector('.step-btn') as HTMLButtonElement;
+const startBtn = document.querySelector('.start-btn') as HTMLButtonElement;
+const stopBtn = document.querySelector('.stop-btn') as HTMLButtonElement;
+
 renderField(field, container);
 
 container.addEventListener('click', (e) => {
@@ -20,10 +24,31 @@ container.addEventListener('click', (e) => {
   renderField(field, container);
 });
 
+let intervalId: number | null = null;
+
 function step(): void {
   field = getNextGeneration(field);
   renderField(field, container);
 }
 
-const stepBtn = document.querySelector('.step-btn') as HTMLButtonElement;
 stepBtn.addEventListener('click', step);
+
+function startGame(): void {
+  if (intervalId === null) {
+    intervalId = window.setInterval(() => {
+      field = getNextGeneration(field);
+      renderField(field, container);
+    }, 500);
+  }
+}
+
+startBtn.addEventListener('click', startGame);
+
+function stopGame(): void {
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+}
+
+stopBtn.addEventListener('click', stopGame);
