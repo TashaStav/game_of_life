@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1749491123894" clover="3.2.0">
-  <project timestamp="1749491123894" name="All files">
+<coverage generated="1749569759694" clover="3.2.0">
+  <project timestamp="1749569759695" name="All files">
     <metrics statements="62" coveredstatements="62" conditionals="24" coveredconditionals="24" methods="3" coveredmethods="3" elements="89" coveredelements="89" complexity="0" loc="62" ncloc="62" packages="1" files="2" classes="2"/>
     <file name="game.ts" path="C:\Users\1\OneDrive\Рабочий стол\Otus\КУРС JS BASIC\game_of_life\src\game.ts">
       <metrics statements="49" coveredstatements="49" conditionals="21" coveredconditionals="21" methods="2" coveredmethods="2"/>
