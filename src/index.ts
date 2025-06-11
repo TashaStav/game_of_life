@@ -1,4 +1,5 @@
 import { createEmptyField } from './gameField.js';
+import { createRandomField } from './gameField.js';
 import { renderField } from './gameView.js';
 import { getNextGeneration } from './game.js';
 
@@ -8,6 +9,8 @@ const container = document.querySelector('.field') as HTMLDivElement;
 const stepBtn = document.querySelector('.step-btn') as HTMLButtonElement;
 const startBtn = document.querySelector('.start-btn') as HTMLButtonElement;
 const stopBtn = document.querySelector('.stop-btn') as HTMLButtonElement;
+const randomBtn = document.querySelector('.random-btn') as HTMLButtonElement;
+const clearBtn = document.querySelector('.clear-btn') as HTMLButtonElement;
 
 renderField(field, container);
 
@@ -77,7 +80,7 @@ const widthInput = document.querySelector('.width-input') as HTMLInputElement;
 const heightInput = document.querySelector('.height-input') as HTMLInputElement;
 const resizeBtn = document.querySelector('.size-btn') as HTMLButtonElement;
 
-function resizeField() {
+function resizeField(): void {
   const newWidth = Number(widthInput.value);
   const newHeight = Number(heightInput.value);
 
@@ -87,3 +90,25 @@ function resizeField() {
 }
 
 resizeBtn.addEventListener('click', resizeField);
+
+function generateRandomField(): void {
+  const width = Number(widthInput.value);
+  const height = Number(heightInput.value);
+
+  stopGame();
+  field = createRandomField(height, width);
+  renderField(field, container);
+}
+
+randomBtn.addEventListener('click', generateRandomField);
+
+function clearField(): void {
+  const width = Number(widthInput.value);
+  const height = Number(heightInput.value);
+
+  stopGame();
+  field = createEmptyField(height, width);
+  renderField(field, container);
+}
+
+clearBtn.addEventListener('click', clearField);

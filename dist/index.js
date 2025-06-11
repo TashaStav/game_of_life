@@ -1,4 +1,5 @@
 import { createEmptyField } from './gameField.js';
+import { createRandomField } from './gameField.js';
 import { renderField } from './gameView.js';
 import { getNextGeneration } from './game.js';
 let field = createEmptyField(25, 25);
@@ -6,6 +7,8 @@ const container = document.querySelector('.field');
 const stepBtn = document.querySelector('.step-btn');
 const startBtn = document.querySelector('.start-btn');
 const stopBtn = document.querySelector('.stop-btn');
+const randomBtn = document.querySelector('.random-btn');
+const clearBtn = document.querySelector('.clear-btn');
 renderField(field, container);
 container.addEventListener('click', (e) => {
     const target = e.target;
@@ -65,4 +68,20 @@ function resizeField() {
     renderField(field, container);
 }
 resizeBtn.addEventListener('click', resizeField);
+function generateRandomField() {
+    const width = Number(widthInput.value);
+    const height = Number(heightInput.value);
+    stopGame();
+    field = createRandomField(height, width);
+    renderField(field, container);
+}
+randomBtn.addEventListener('click', generateRandomField);
+function clearField() {
+    const width = Number(widthInput.value);
+    const height = Number(heightInput.value);
+    stopGame();
+    field = createEmptyField(height, width);
+    renderField(field, container);
+}
+clearBtn.addEventListener('click', clearField);
 //# sourceMappingURL=index.js.map
