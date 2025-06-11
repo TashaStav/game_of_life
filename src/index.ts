@@ -2,7 +2,7 @@ import { createEmptyField } from './gameField.js';
 import { renderField } from './gameView.js';
 import { getNextGeneration } from './game.js';
 
-let field = createEmptyField(30, 30);
+let field = createEmptyField(25, 25);
 
 const container = document.querySelector('.field') as HTMLDivElement;
 const stepBtn = document.querySelector('.step-btn') as HTMLButtonElement;
@@ -24,7 +24,27 @@ container.addEventListener('click', (e) => {
   renderField(field, container);
 });
 
+let speed = 500;
 let intervalId: number | null = null;
+
+function changeSpeed(newSpeed: number) {
+  speed = 1100 - newSpeed * 100;
+  if (intervalId !== null) {
+    stopGame();
+    startGame();
+  }
+}
+
+function setupSpeedControl(): void {
+  const speedInput = document.querySelector('.speed') as HTMLInputElement;
+  changeSpeed(Number(speedInput.value));
+
+  speedInput.addEventListener('input', () => {
+    changeSpeed(Number(speedInput.value));
+  });
+}
+
+setupSpeedControl();
 
 function step(): void {
   field = getNextGeneration(field);
@@ -38,7 +58,7 @@ function startGame(): void {
     intervalId = window.setInterval(() => {
       field = getNextGeneration(field);
       renderField(field, container);
-    }, 500);
+    }, speed);
   }
 }
 
@@ -52,3 +72,18 @@ function stopGame(): void {
 }
 
 stopBtn.addEventListener('click', stopGame);
+
+const widthInput = document.querySelector('.width-input') as HTMLInputElement;
+const heightInput = document.querySelector('.height-input') as HTMLInputElement;
+const resizeBtn = document.querySelector('.size-btn') as HTMLButtonElement;
+
+function resizeField() {
+  const newWidth = Number(widthInput.value);
+  const newHeight = Number(heightInput.value);
+
+  stopGame();
+  field = createEmptyField(newHeight, newWidth);
+  renderField(field, container);
+}
+
+resizeBtn.addEventListener('click', resizeField);
