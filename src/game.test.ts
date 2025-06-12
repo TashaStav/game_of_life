@@ -1,6 +1,6 @@
 import { countAliveNeighbors } from './game';
 import { getNextGeneration } from './game';
-import { Field } from './types.js';
+import { Field } from './types';
 
 describe('countAliveNeighbors', () => {
   const field: Field = [

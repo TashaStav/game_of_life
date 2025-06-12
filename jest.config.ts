@@ -123,6 +123,7 @@ const config: Config = {
   // A path to a custom resolver
   // resolver: undefined,
 
+
   // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
 
@@ -167,7 +168,6 @@ const config: Config = {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: ['/node_modules/', './src/types.ts'],
-
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
 
