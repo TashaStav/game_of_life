@@ -1,9 +1,9 @@
-import { countAliveNeighbors } from './game';
-import { getNextGeneration } from './game';
-import { Field } from './types';
+import { countAliveNeighbors } from './game.js';
+import { getNextGeneration } from './game.js';
+import { Field } from './types.js';
 
 describe('countAliveNeighbors', () => {
-  const field = [
+  const field: Field = [
     [1, 0, 1],
     [0, 1, 0],
     [0, 0, 1],
