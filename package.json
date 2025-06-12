@@ -17,8 +17,8 @@
     "url": "git+https://github.com/TashaStav/game_of_life.git"
   },
   "lint-staged": {
-  "src/**/*.{js,ts,tsx}": "eslint --fix"
-},
+    "src/**/*.{js,ts,tsx}": "eslint --fix"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -45,6 +45,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.5.1",
     "prettier": "3.5.3",
+    "ts-jest": "^29.3.4",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
