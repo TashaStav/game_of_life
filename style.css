@@ -1,0 +1,37 @@
+.field {
+  display: flex;
+  flex-direction: column; 
+  gap: 2px; 
+  width: fit-content; 
+  margin: 20px auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row; 
+  gap: 2px; 
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.cell.alive {
+  background-color: green;
+}
+
+.cell.dead {
+  background-color: white;
+}
+
+.step-btn {
+  margin-bottom: 20px;
+}
+.controls {
+  margin-bottom: 20px;
+}
