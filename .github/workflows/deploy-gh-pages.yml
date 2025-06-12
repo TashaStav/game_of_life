@@ -19,7 +19,7 @@ jobs:
       - name: Copy static files
         run: |
           cp index.html dist/
-          cp styles.css dist/
+          cp style.css dist/
 
 
       - uses: JamesIves/github-pages-deploy-action@v4
