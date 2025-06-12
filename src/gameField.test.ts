@@ -1,4 +1,4 @@
-import { createRandomField } from './gameField.js';
+import { createRandomField } from './gameField';
 
 describe('createRandomField', () => {
   it('should create a random array with a given number of rows and columns', () => {

@@ -1,5 +1,5 @@
-import { runApp } from './index.js';
-import { init } from './events.js';
+import { runApp } from './index';
+import { init } from './events';
 
 jest.mock('./events', () => ({
   init: jest.fn(),
