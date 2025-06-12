@@ -1,5 +1,5 @@
-import { renderField } from './gameView.js';
-import { Field } from './types.js';
+import { renderField } from './gameView';
+import { Field } from './types';
 
 describe('renderField', () => {
   let container: HTMLElement;

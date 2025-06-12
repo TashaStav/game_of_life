@@ -1,5 +1,5 @@
-import { Cell, Field } from './types.js';
-import { createEmptyField } from './gameField.js';
+import { Cell, Field } from './types';
+import { createEmptyField } from './gameField';
 
 export function countAliveNeighbors(
   field: Field,

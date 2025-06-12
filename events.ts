@@ -1,6 +1,6 @@
-import { createEmptyField, createRandomField } from './gameField.js';
-import { renderField } from './gameView.js';
-import { getNextGeneration } from './game.js';
+import { createEmptyField, createRandomField } from './gameField';
+import { renderField } from './gameView';
+import { getNextGeneration } from './game';
 
 export let intervalId: number | null = null;
 export function init() {

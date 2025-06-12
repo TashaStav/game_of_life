@@ -1,7 +1,7 @@
-import { init } from './events.js';
-import { createEmptyField, createRandomField } from './gameField.js';
-import { renderField } from './gameView.js';
-import { getNextGeneration } from './game.js';
+import { init } from './events';
+import { createEmptyField, createRandomField } from './gameField';
+import { renderField } from './gameView';
+import { getNextGeneration } from './game';
 
 jest.mock('./gameField', () => ({
   createEmptyField: jest.fn(() =>

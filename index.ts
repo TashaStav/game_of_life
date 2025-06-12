@@ -1,4 +1,4 @@
-import { init } from './events.js';
+import { init } from './events';
 
 export function runApp() {
   document.addEventListener('DOMContentLoaded', () => {
