@@ -1,0 +1,32 @@
+name: Deploy to GithubPages
+
+on:
+  pull_request:
+
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy static files
+        run: |
+          cp index.html dist/
+          cp style.css dist/
+
+
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          token: ${{ secrets.PAT_TOKEN }}
+          branch: gh-pages
+          clean: true
+
+

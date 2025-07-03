@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Игра "Жизнь"</h1>
+    <div class = "controls"> 
+        <button class = "start-btn">Старт</button>
+        <button class = "stop-btn">Стоп</button>
+        <button class = "step-btn">Шаг</button>
+        <button class="random-btn">Рандомное поле</button>
+        <button class="clear-btn">Очистить поле</button><br>
+        <label>
+            Скорость:
+        <input type="range" class="speed" min="1" max="10" step="1" value="5">
+        </label>
+    </div>
+    <div class="field_size">
+        <label>Ширина поля: <input type="number" class="width-input" min="5" max="100" value="25"></label>
+        <label>Высота поля: <input type="number" class="height-input" min="5" max="100" value="25"></label>
+        <button class="size-btn">ОК</button>
+    </div>
+    <div class="field"></div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
