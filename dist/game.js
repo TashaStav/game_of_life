@@ -1,4 +1,4 @@
-import { createEmptyField } from './gameField.js';
+import { createEmptyField } from './gameField';
 export function countAliveNeighbors(field, x, y) {
     const rows = field.length;
     const cols = field[0].length;
