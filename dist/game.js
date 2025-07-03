@@ -37,4 +37,7 @@ export function getNextGeneration(field) {
     }
     return newField;
 }
+export function areFieldEqual(fieldOne, fieldTwo) {
+    return fieldOne.every((row, x) => row.every((cell, y) => cell === fieldTwo[x][y]));
+}
 //# sourceMappingURL=game.js.map

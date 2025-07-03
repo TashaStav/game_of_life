@@ -1,8 +1,9 @@
-import { createEmptyField, createRandomField } from './gameField';
-import { renderField } from './gameView';
-import { getNextGeneration } from './game';
+import { createEmptyField, createRandomField } from './gameField.js';
+import { renderField } from './gameView.js';
+import { getNextGeneration, areFieldEqual } from './game.js';
 
 export let intervalId: number | null = null;
+
 export function init() {
   let field = createEmptyField(25, 25);
 
@@ -14,6 +15,10 @@ export function init() {
   const clearBtn = document.querySelector('.clear-btn') as HTMLButtonElement;
 
   renderField(field, container);
+
+  function isFieldEmpty(field: number[][]): boolean {
+    return field.every((row) => row.every((cell) => cell === 0));
+  }
 
   // Ручное изменение состояния клеток
   container.addEventListener('click', (e) => {
@@ -49,10 +54,29 @@ export function init() {
   }
 
   setupSpeedControl();
+  // История игры
+  const fieldHistory = new Set<string>();
+  function clearHistory(): void {
+    fieldHistory.clear();
+  }
 
   // Кнопка Шаг
   function step(): void {
-    field = getNextGeneration(field);
+    const nextField = getNextGeneration(field);
+    const fieldState = JSON.stringify(nextField);
+
+    if (
+      isFieldEmpty(nextField) ||
+      areFieldEqual(field, nextField) ||
+      fieldHistory.has(fieldState)
+    ) {
+      stopGame();
+      alert('Игра окончена');
+      return;
+    }
+
+    field = nextField;
+    fieldHistory.add(fieldState);
     renderField(field, container);
   }
   stepBtn.addEventListener('click', step);
@@ -61,7 +85,20 @@ export function init() {
   function startGame(): void {
     if (intervalId === null) {
       intervalId = window.setInterval(() => {
-        field = getNextGeneration(field);
+        const nextField = getNextGeneration(field);
+        const fieldState = JSON.stringify(nextField);
+        if (
+          isFieldEmpty(nextField) ||
+          areFieldEqual(field, nextField) ||
+          fieldHistory.has(fieldState)
+        ) {
+          stopGame();
+          alert('Игра окончена');
+          return;
+        }
+
+        field = nextField;
+        fieldHistory.add(fieldState);
         renderField(field, container);
       }, speed);
     }
@@ -90,6 +127,7 @@ export function init() {
 
     stopGame();
     field = createEmptyField(newHeight, newWidth);
+    clearHistory();
     renderField(field, container);
   }
   resizeBtn.addEventListener('click', resizeField);
@@ -101,6 +139,7 @@ export function init() {
 
     stopGame();
     field = createRandomField(height, width);
+    clearHistory();
     renderField(field, container);
   }
   randomBtn.addEventListener('click', generateRandomField);
@@ -112,6 +151,7 @@ export function init() {
 
     stopGame();
     field = createEmptyField(height, width);
+    clearHistory();
     renderField(field, container);
   }
   clearBtn.addEventListener('click', clearField);

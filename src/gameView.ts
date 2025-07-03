@@ -1,4 +1,4 @@
-import { Field } from './types';
+import { Field } from './types.js';
 
 export function renderField(field: Field, container: HTMLElement) {
   container.innerHTML = '';

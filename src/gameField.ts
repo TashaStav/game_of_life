@@ -1,4 +1,4 @@
-import { Cell, Field } from './types';
+import { Cell, Field } from './types.js';
 
 export function createEmptyField(rows: number, cols: number): Field {
   const field: Field = [];

@@ -1,5 +1,5 @@
-import { Cell, Field } from './types';
-import { createEmptyField } from './gameField';
+import { Cell, Field } from './types.js';
+import { createEmptyField } from './gameField.js';
 
 export function countAliveNeighbors(
   field: Field,
@@ -46,4 +46,13 @@ export function getNextGeneration(field: Field): Field {
     }
   }
   return newField;
+}
+
+export function areFieldEqual(
+  fieldOne: number[][],
+  fieldTwo: number[][],
+): boolean {
+  return fieldOne.every((row, x) =>
+    row.every((cell, y) => cell === fieldTwo[x][y]),
+  );
 }

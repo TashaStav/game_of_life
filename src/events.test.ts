@@ -21,7 +21,12 @@ jest.mock('./gameView', () => ({
 }));
 
 jest.mock('./game', () => ({
-  getNextGeneration: jest.fn((field) => field),
+  getNextGeneration: jest.fn(() =>
+    Array(25)
+      .fill(null)
+      .map(() => Array(25).fill(1)),
+  ),
+  areFieldEqual: jest.fn(() => false),
 }));
 
 describe('init()', () => {
@@ -36,7 +41,11 @@ describe('init()', () => {
       <button class="size-btn"></button>
       <input class="width-input" value="25"/>
       <input class="height-input" value="25"/>
-      <input class="speed" value="5" />
+      <input class="speed" value="5"/>
+      // <div class="modal-wrp" style="display: none;">
+      //     <p class="modal-message"></p>
+      //     <button class="modal-close-btn">OK</button>
+      //   </div>
     `;
 
     jest.useFakeTimers();
